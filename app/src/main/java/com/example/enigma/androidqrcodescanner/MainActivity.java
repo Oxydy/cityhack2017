@@ -31,14 +31,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //View objects
         buttonScan = (Button) findViewById(R.id.buttonScan);
-        textViewName = (TextView) findViewById(R.id.textViewName);
-        textViewAddress = (TextView) findViewById(R.id.textViewAddress);
+
 
         //intializing scan object
         qrScan = new IntentIntegrator(this);
 
         //attaching onclick listener
         buttonScan.setOnClickListener(this);
+
+        Button advanceToLoginPage = (Button) findViewById(R.id.LoginScreen);
+        advanceToLoginPage.setOnClickListener((new View.OnClickListener( ){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this , LoginActivity.class);
+                startActivity(intent);
+            }
+        }));
     }
 
     //Getting the scan results
